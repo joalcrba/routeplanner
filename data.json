@@ -1,16 +1,9 @@
-{
-    "places": [
+data={
+    "place": [
         {
-            "value": "UCSD"
-        },
-        {
-            "value": "San Diego"
-        },
-        {
-            "value": "Los Angeles"
-        },
-        {
-        	"value": "Las Vegas"
-        }
+        startpoint: 'UCSD',
+        stopover: 'Disneyland',
+        endpoint: 'San Francisco'
+    	}	
     ]
-}
+};

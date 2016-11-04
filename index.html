@@ -60,23 +60,55 @@
         <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/26/11/stats.js"></script>
         <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/26/11/controls.js"></script>
         <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/26/11/infowindow.js"></script>
+        <script type="text/javascript" src="data.json"></script>
+        <script type="text/javascript" src="myScript.js"></script>
 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 
     </head>
 
 
     <body>
+
+<!--
+        <select id="place"></select>
+
+        <script type="text/javascript">
+            var $select = $('#place');
+
+            $.ajax({
+                url: 'data.json',
+                dataType: 'json' 
+                success:function(data){
+        
+                $select.html('');
+
+                $.each(data.person, function(key, val){
+
+                    $select.append('<option id="' + val.id + '">' + val.name '</option>');
+                })
+                },
+                error:function(){</strong>
+                    $select.html('<option id="-1">none available</option>');
+                }
+            });
+        </script>
+-->
+<!--
         <div id="floating-panel" align="center">
             <b>Start: </b>
-                <script type="text/javascript">
-                    $.get('data.json')
-                </script>
+                <select id="start">
+                    <option value="myData[0].place">
+                    </option>
+                </select>
         </div>  
-<!--
+-->
+
         <div id="floating-panel"align="center">
             <b>Start: </b>
             <select id="start">
                 <option value="ucsd, ca">UCSD</option>
+<!--
                 <option value="san diego, ca">San Diego</option>
                 <option value="st louis, mo">St Louis</option>
                 <option value="Miami, FL">Miami</option>
@@ -88,11 +120,14 @@
                 <option value="portland, or">Portland</option>
                 <option value="san francisco, ca">San Francisco</option>
                 <option value="new york city, ny">New York City</option>
+-->
                 <option value="los angeles, ca">Los Angeles</option>
             </select>
             <br>
             <b>End: </b>
             <select id="end">
+                <option value="ucsd, ca">UCSD</option>
+<!--
                 <option value="san diego, ca">San Diego</option>
                 <option value="st louis, mo">St Louis</option>
                 <option value="Miami, FL">Miami</option>
@@ -104,10 +139,11 @@
                 <option value="portland, or">Portland</option>
                 <option value="san francisco, ca">San Francisco</option>
                 <option value="new york city, ny">New York City</option>
+-->
                 <option value="los angeles, ca">Los Angeles</option>
             </select>
         </div>
--->
+
 
         <div id="map" style="position: relative; overflow: hidden;">
             <div style="height: 100%; width: 100%; position: absolute; background-color: rgb(229, 227, 223);">
@@ -329,14 +365,26 @@
                 });
 
                 var myLatLng = {lat: 33.67635422, lng: -117.81257629};
-
-/*
                 var marker = new google.maps.Marker({
                     position: myLatLng,
                     map: map,
-                    title: 'Hello World!'
+                    title: 'Disneyland'
                 })
-*/
+
+                var myLatLng = {lat: 33.770050, lng: -118.193739};
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'Long Beach'
+                })
+
+                var myLatLng = {lat: 33.195870, lng: -117.379483};
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'Oceanside'
+                })
+
                 directionsDisplay.setMap(map);
 
                 var onChangeHandler = function() {
@@ -361,6 +409,7 @@
             }
     </script>
 
+
     <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKA6a_u_YWFTsKjGsqa3xnJRGgtKZJIHs&amp;callback=initMap">
     </script>
 
@@ -371,22 +420,22 @@
             <br>
 
             <div align="center">
-                A <input type="search" id="start" value=""><br>
-                B <input type="search" id="end" value=""><br>
+                A <input type="search" id="start" value="UCSD"><br>
+                B <input type="search" id="end" value="Los Angeles"><br>
 
                 <a href="ucsd.html">
                     <img src="images/pina.png" alt="" style="width:42px;height:42px;border:0;">
                 </a> <b>University of California, San Diego</b> <br> 9500 Gilman Dr, La Jolla, CA 92093
-
+<!--
                 <a href="#">
                     <img src="images/pinb.png" alt="" style="width:42px;height:42px;border:0;">
                 </a> <b>Disneyland</b> <br> 1313 Disneyland Dr, Anaheim, CA 92802
-
+-->
                 <a href="#">
-                    <img src="images/pinc.png" alt="" style="width:42px;height:42px;border:0;">
-                </a> <b> San Francisco International Airport</b> <br> San Francisco, CA 94128
+                    <img src="images/pinb.png" alt="" style="width:42px;height:42px;border:0;">
+                </a> <b>Los Angeles, CA </b> <br> Los Angeles, CA
 
-                <a href="stopover.html">
+                <a href="suggestions.html">
                     <img src="images/plus.png" alt="" style="width:42px;height:42px;border:0;">
                 </a> Add a Stopover
             </div>
@@ -417,4 +466,5 @@
         </script>
 -->
     </body>
+
 </html>
